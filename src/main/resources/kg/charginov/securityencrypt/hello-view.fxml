@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" style="-fx-background-color: #090F43;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kg.charginov.securityencrypt.HelloController">
+   <children>
+      <ScrollPane layoutX="14.0" layoutY="184.0" prefHeight="473.0" prefWidth="482.0">
+         <content>
+            <TextArea fx:id="requestText" prefHeight="474.0" prefWidth="485.0" wrapText="true" />
+         </content>
+      </ScrollPane>
+      <Label layoutX="433.0" layoutY="14.0" text="Encryption" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Black" size="50.0" />
+         </font>
+      </Label>
+      <Label layoutX="193.0" layoutY="130.0" text="Request" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Light" size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="793.0" layoutY="130.0" text="Response" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Light" size="26.0" />
+         </font>
+      </Label>
+      <Button fx:id="encryptButton" layoutX="491.0" layoutY="122.0" mnemonicParsing="false" onAction="#encryptButtonClicked" prefHeight="54.0" prefWidth="119.0" text="Encrypt">
+         <font>
+            <Font name="Segoe UI Emoji" size="20.0" />
+         </font>
+      </Button>
+      <ScrollPane layoutX="604.0" layoutY="184.0" prefHeight="473.0" prefWidth="482.0">
+         <content>
+            <TextArea fx:id="responseText" prefHeight="474.0" prefWidth="485.0" wrapText="true" />
+         </content>
+      </ScrollPane>
+      <Label fx:id="wrongText" layoutX="470.0" layoutY="87.0" text="Write a text please!" textFill="RED" visible="false">
+         <font>
+            <Font name="Segoe UI Light" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
