@@ -4,37 +4,68 @@ import java.io.*;
 import java.util.*;
 
 public class EncryptionService {
-    private final StringBuilder answer = new StringBuilder();
-    public String encrypt(String text){
-        countFreqOfOutput();
-        countFreqOfInput(text);
 
-        changeCharactersInText(text);
-        System.out.println(freqListOfKyrgyzAlphabet);
-        System.out.println(freqListOfDecryptedText);
+    private StringBuilder answer = new StringBuilder();
+
+    HashMap<Character, Integer> mapFreqOfInputText;
+    HashMap<Character, Integer> mapFreqOfKyrgyzDictionary;
+
+    List<Character> listFreqOfInputText;
+    List<Character> listFreqOfKyrgyzDictionary;
+
+    public static final String BOOK_6 = "C:\\Users\\User\\Desktop\\University\\Machine Learning Course\\manas.txt";
+    public static final String BOOK_5 = "C:\\Users\\User\\Desktop\\University\\Machine Learning Course\\kyrgyz-text.txt";
+    public static final String BOOK_4 = "C:\\Users\\User\\Desktop\\University\\Machine Learning Course\\book-4.txt";
+    public static final String BOOK_3 = "C:\\Users\\User\\Desktop\\University\\Machine Learning Course\\book-3.txt";
+    public static final String BOOK_2 = "C:\\Users\\User\\Desktop\\University\\Machine Learning Course\\book-2.txt";
+    public static final String BOOK_1 = "C:\\Users\\User\\Desktop\\University\\IntellijIDEA\\SecurityEncrypt\\src\\main\\java\\kg\\charginov\\securityencrypt\\file\\kyrgyz_text.txt";
+
+    public String decrypt(String text,HashMap<Character,Character> map){
+        text = text.toLowerCase(Locale.ROOT);
+        answer.setLength(0);
+        for(char ch:text.toCharArray()){
+            if(ch != '\n'){
+                if(map.get(ch) != null){
+                    answer.append(map.get(ch));
+                }else{
+                    answer.append(ch);
+                }
+            }else{
+                answer.append("\n");
+            }
+        }
         return answer.toString();
     }
 
-     List<Character> freqListOfDecryptedText;
-     List<Character> freqListOfKyrgyzAlphabet;
+    public String changeCharactersInText(String text,HashMap<Character,Character> map,String filePath){
+        answer.setLength(0);
+        countFreqOfKyrgyzDictionary(filePath);
+        countFreqOfInput(text);
+        System.out.println();
+        System.out.println("Frequency of Kyrgyz Text: " + listFreqOfKyrgyzDictionary + " " + listFreqOfKyrgyzDictionary.size());
+        System.out.println("Frequency of Input Text:  " + listFreqOfInputText + " " + listFreqOfInputText.size());
 
-    private void changeCharactersInText(String text){
+        for(int i = 0;i<listFreqOfInputText.size();i++){
+            if(i>=listFreqOfKyrgyzDictionary.size()) break;
+            map.put(listFreqOfInputText.get(i),listFreqOfKyrgyzDictionary.get(i));
+        }
         for(char character:text.toCharArray()) {
             if (character != '\n') {
                 Character ch = Character.toLowerCase(character);
-                int index = freqListOfDecryptedText.indexOf(ch);
-                if (index >= 0 && index < freqListOfKyrgyzAlphabet.size()) {
-                    character = freqListOfKyrgyzAlphabet.get(index);
+                int index = listFreqOfInputText.indexOf(ch);
+                if (index >= 0 && index < listFreqOfKyrgyzDictionary.size()) {
+                    character = listFreqOfKyrgyzDictionary.get(index);
                 }
             }
             answer.append(character);
         }
+        return answer.toString();
     }
 
-    private void countFreqOfOutput(){
-        HashMap<Character, Integer> freqOfExample = new HashMap<>();
+    private void countFreqOfKyrgyzDictionary(String filePath){
+        mapFreqOfKyrgyzDictionary = new HashMap<>();
 
-        File file = new File("C:\\Users\\User\\Desktop\\University\\IntellijIDEA\\SecurityEncrypt\\src\\main\\java\\kg\\charginov\\securityencrypt\\file\\kyrgyz_text.txt");
+        File file = new File(filePath);
 
         try {
             Scanner scanner = new Scanner(file);
@@ -44,7 +75,7 @@ public class EncryptionService {
                 for (int i = 0; i < line.length(); i++) {
                     char ch = line.charAt(i);
                     if(isKyrgyzLetter(ch)) continue;
-                    freqOfExample.put(ch, freqOfExample.getOrDefault(ch,0)+1);
+                    mapFreqOfKyrgyzDictionary.put(ch, mapFreqOfKyrgyzDictionary.getOrDefault(ch,0)+1);
                 }
             }
             scanner.close();
@@ -52,21 +83,20 @@ public class EncryptionService {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        freqListOfKyrgyzAlphabet = mapToList(freqOfExample);
-
+        listFreqOfKyrgyzDictionary = mapToList(mapFreqOfKyrgyzDictionary);
+        System.out.println(mapFreqOfKyrgyzDictionary);
     }
 
     private void countFreqOfInput(String text){
-        HashMap<Character, Integer> freqOfInput = new HashMap<>();
+        mapFreqOfInputText = new HashMap<>();
         text = text.toLowerCase(Locale.ROOT);
         for (int i = 0; i < text.length(); i++) {
             char ch = text.charAt(i);
             if(isKyrgyzLetter(ch)) continue;
-            freqOfInput.put(ch, freqOfInput.getOrDefault(ch,0)+1);
+            mapFreqOfInputText.put(ch, mapFreqOfInputText.getOrDefault(ch,0)+1);
         }
-
-        freqListOfDecryptedText = mapToList(freqOfInput);
-
+        listFreqOfInputText = mapToList(mapFreqOfInputText);
+        System.out.println(mapFreqOfInputText);
     }
 
     private boolean isKyrgyzLetter(char ch) {

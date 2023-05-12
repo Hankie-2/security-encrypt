@@ -1,49 +1,294 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" style="-fx-background-color: #090F43;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kg.charginov.securityencrypt.HelloController">
    <children>
-      <ScrollPane layoutX="14.0" layoutY="184.0" prefHeight="473.0" prefWidth="482.0">
-         <content>
-            <TextArea fx:id="requestText" prefHeight="474.0" prefWidth="485.0" wrapText="true" />
-         </content>
-      </ScrollPane>
-      <Label layoutX="433.0" layoutY="14.0" text="Encryption" textFill="WHITE">
-         <font>
-            <Font name="Segoe UI Black" size="50.0" />
-         </font>
-      </Label>
-      <Label layoutX="193.0" layoutY="130.0" text="Request" textFill="WHITE">
+      <TextArea fx:id="requestText" layoutX="17.0" layoutY="85.0" prefHeight="404.0" prefWidth="486.0" wrapText="true" />
+      <Label layoutX="192.0" layoutY="27.0" text="Request" textFill="WHITE">
          <font>
             <Font name="Segoe UI Light" size="26.0" />
          </font>
       </Label>
-      <Label layoutX="793.0" layoutY="130.0" text="Response" textFill="WHITE">
+      <Label layoutX="792.0" layoutY="27.0" text="Response" textFill="WHITE">
          <font>
             <Font name="Segoe UI Light" size="26.0" />
          </font>
       </Label>
-      <Button fx:id="encryptButton" layoutX="491.0" layoutY="122.0" mnemonicParsing="false" onAction="#encryptButtonClicked" prefHeight="54.0" prefWidth="119.0" text="Encrypt">
+      <Button fx:id="decryptButton2" layoutX="560.0" layoutY="18.0" mnemonicParsing="false" onAction="#decryptButton2Clicked" prefHeight="54.0" prefWidth="194.0" text="Decrypt ( 2 step )">
          <font>
             <Font name="Segoe UI Emoji" size="20.0" />
          </font>
       </Button>
-      <ScrollPane layoutX="604.0" layoutY="184.0" prefHeight="473.0" prefWidth="482.0">
-         <content>
-            <TextArea fx:id="responseText" prefHeight="474.0" prefWidth="485.0" wrapText="true" />
-         </content>
-      </ScrollPane>
+      <TextArea fx:id="responseText" layoutX="601.0" layoutY="81.0" prefHeight="404.0" prefWidth="485.0" wrapText="true" />
       <Label fx:id="wrongText" layoutX="470.0" layoutY="87.0" text="Write a text please!" textFill="RED" visible="false">
          <font>
             <Font name="Segoe UI Light" size="20.0" />
          </font>
       </Label>
+      <HBox layoutX="15.0" layoutY="551.0" prefHeight="39.0" prefWidth="1070.0">
+         <children>
+            <TextArea fx:id="letterА" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterБ" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterВ" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterГ" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterД" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterЕ" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterЁ" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterЖ" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterЗ" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterИ" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterЙ" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterК" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterЛ" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterМ" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterН" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterҢ" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterО" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterӨ" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterП" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterР" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+         </children>
+      </HBox>
+      <Label layoutX="27.0" layoutY="506.0" text="А     Б     В      Г      Д      Е      Ё     Ж     З     И     Й     К      Л     М    Н      Ң     О     Ө    П     Р" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Light" size="26.0" />
+         </font>
+      </Label>
+      <HBox layoutX="116.0" layoutY="646.0" prefHeight="39.0" prefWidth="885.0">
+         <children>
+            <TextArea fx:id="letterС" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterТ" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterУ" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterҮ" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterФ" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterХ" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterЦ" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterЧ" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterШ" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterЩ" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterЬ" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterЫ" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterЪ" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterЭ" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterЮ" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+            <TextArea fx:id="letterЯ" prefHeight="39.0" prefWidth="44.0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextArea>
+         </children>
+      </HBox>
+      <Label layoutX="118.0" layoutY="604.0" text="C     Т      У      Ү      Ф     Х      Ц     Ч     Ш      Щ    Ъ      Ы     Ь     Э     Ю    Я" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Light" size="26.0" />
+         </font>
+      </Label>
+      <Button fx:id="decryptButton1" layoutX="333.0" layoutY="18.0" mnemonicParsing="false" onAction="#decryptButton1Clicked" prefHeight="54.0" prefWidth="188.0" text="Decrypt ( 1 step )">
+         <font>
+            <Font name="Segoe UI Emoji" size="20.0" />
+         </font>
+      </Button>
+      <VBox layoutX="510.0" layoutY="213.0" prefHeight="122.0" prefWidth="100.0">
+         <children>
+            <RadioButton fx:id="mode1RB" mnemonicParsing="false" text="MODE 1" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Black" size="12.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="modes" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="mode2RB" mnemonicParsing="false" text="MODE 2" textFill="WHITE" toggleGroup="$modes">
+               <font>
+                  <Font name="Segoe UI Black" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </RadioButton>
+            <RadioButton fx:id="mode3RB" mnemonicParsing="false" text="MODE 3" textFill="WHITE" toggleGroup="$modes">
+               <font>
+                  <Font name="Segoe UI Black" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </RadioButton>
+            <RadioButton fx:id="mode4RB" mnemonicParsing="false" text="MODE 4" textFill="WHITE" toggleGroup="$modes">
+               <font>
+                  <Font name="Segoe UI Black" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </RadioButton>
+            <RadioButton fx:id="mode5RB" mnemonicParsing="false" text="MODE 5" textFill="WHITE" toggleGroup="$modes">
+               <font>
+                  <Font name="Segoe UI Black" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </RadioButton>
+            <RadioButton fx:id="mode6RB" mnemonicParsing="false" text="MODE 6" textFill="WHITE" toggleGroup="$modes">
+               <font>
+                  <Font name="Segoe UI Black" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </RadioButton>
+         </children>
+      </VBox>
    </children>
 </Pane>
